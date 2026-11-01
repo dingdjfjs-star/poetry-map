@@ -347,9 +347,11 @@ document.addEventListener('keydown', e => {
   setBasemap('ink');
   renderMarkers(D.places);
   renderList();
-  map.fitBounds(L.latLngBounds(D.places.map(p => [p.lat, p.lng])).pad(0.06), { maxZoom: 5 });
+  // 固定初始视野（避免依赖首帧容器量测的竞态），"全域"按钮可再全图 fitBounds
+  map.setView([34.6, 110], 4.5);
   if (map.getZoom() < 5) document.getElementById('map').classList.add('zoom-low');
   // 布局稳定后校准地图尺寸，窗口变化时同步
   requestAnimationFrame(() => map.invalidateSize());
   window.addEventListener('resize', () => map.invalidateSize());
+  window.addEventListener('load', () => map.invalidateSize());
 })();

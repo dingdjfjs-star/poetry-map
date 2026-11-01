@@ -5,11 +5,14 @@
 
 ## 快速开始
 
+**在线版**：<https://dingdjfjs-star.github.io/poetry-map/>（GitHub Pages）· 备用 <https://poetry-map-gerk.zai.site>
+
 ```bat
-启动.bat          :: 双击即可（启动零依赖静态服务器 :8940 并打开浏览器）
+启动.bat          :: 本地双击即可（启动零依赖静态服务器 :8940 并打开浏览器）
 ```
 
 或 `node server.js`；也可直接双击 `index.html`（数据为 JS 文件，file:// 协议同样可用）。
+重新部署到 GitHub：`node tools/github-deploy.js`（提交并推送后 Pages 自动构建）。
 
 - **水墨底图默认离线可用**（经纬网 + 概化长江/黄河/珠江/淮河水系 + 地域题字），无网络不白屏
 - 「暗色」为 Esri World Dark Gray 瓦片（免 Key），「街道」为 OSM，需联网
